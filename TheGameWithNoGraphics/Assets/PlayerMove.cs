@@ -25,9 +25,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float jumpMultiplier;
     [SerializeField] private KeyCode jumpKey;
 
+    private AudioSource audioSrc;
+
+
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -39,6 +43,18 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        
+        if(Input.GetAxis(horizontalInputName) != 0|| Input.GetAxis(verticalInputName) != 0)
+        {
+            if (!audioSrc.isPlaying)
+            {
+                audioSrc.Play();
+            }
+        }
+        else
+        {
+            audioSrc.Stop();
+        }
     }
 
     private void PlayerMovement()

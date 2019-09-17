@@ -15,7 +15,7 @@ public class PlayerLook : MonoBehaviour
     
     private void Awake()
     {
-        //Center and Lock the Curosor into the middle of the screen to make sure the mouse doens't escape from the game field
+        //Center and Lock the Curosor into the middle of     eeee``the screen to make sure the mouse doens't escape from the game field
         LockCursor();
         
         //This will start off as 0, but will get a value during CameraRotation()

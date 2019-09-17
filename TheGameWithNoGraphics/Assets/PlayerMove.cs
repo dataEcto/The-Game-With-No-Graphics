@@ -44,11 +44,16 @@ public class PlayerMove : MonoBehaviour
     {
         PlayerMovement();
         
-        if(Input.GetAxis(horizontalInputName) != 0|| Input.GetAxis(verticalInputName) != 0)
+        if((Input.GetAxis(horizontalInputName) != 0|| Input.GetAxis(verticalInputName) != 0) && !isJumping)
         {
+            audioSrc.volume = Random.Range(0.5f, 1f);
+            audioSrc.pitch = Random.Range(0.5f, 1.1f);
+            
             if (!audioSrc.isPlaying)
             {
                 audioSrc.Play();
+                
+
             }
         }
         else
